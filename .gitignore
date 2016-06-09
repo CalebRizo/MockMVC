@@ -1,3 +1,9 @@
 .gradle/
 .gradletasknamecache
 build/
+MockMVC.iml
+MockMVC.iws
+MockMVC.ipr
+.classpath
+.project
+.settings/
