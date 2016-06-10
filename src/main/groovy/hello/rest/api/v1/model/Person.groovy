@@ -1,4 +1,4 @@
-package hello
+package hello.rest.api.v1.model
 
 class Person {
 

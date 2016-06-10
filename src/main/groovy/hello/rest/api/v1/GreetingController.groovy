@@ -1,4 +1,4 @@
-package hello
+package hello.rest.api.v1
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
