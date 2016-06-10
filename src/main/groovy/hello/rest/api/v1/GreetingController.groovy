@@ -1,5 +1,7 @@
 package hello.rest.api.v1
 
+import hello.rest.api.v1.model.Greeting
+import hello.rest.api.v1.model.Person
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.multipart.MultipartFile
@@ -14,7 +16,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST
 
 @RestController
 @RequestMapping('/greeting')
-public class GreetingController {
+class GreetingController {
 
     private static final String template = 'Hello, %s!'
     private final AtomicLong counter = new AtomicLong()
@@ -31,7 +33,7 @@ public class GreetingController {
         new Greeting(id: counter.incrementAndGet(), content: String.format(template, person.name))
     }
 
-    @RequestMapping(value='/multipart' ,method = POST)
+    @RequestMapping(value='/multipart', method = POST)
     ResponseEntity<Map> multipart(@RequestParam('multipart')MultipartFile multipartFile) {
         Map info = [
           contentType: multipartFile.contentType,
