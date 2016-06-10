@@ -7,3 +7,6 @@ MockMVC.ipr
 .classpath
 .project
 .settings/
+MockMVCProject.iml
+MockMVCProject.ipr
+MockMVCProject.iws
