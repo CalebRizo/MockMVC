@@ -8,6 +8,8 @@ import org.springframework.web.multipart.MultipartFile
 
 import java.util.concurrent.atomic.AtomicLong
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -21,19 +23,19 @@ class GreetingController {
     private static final String template = 'Hello, %s!'
     private final AtomicLong counter = new AtomicLong()
 
-    @RequestMapping
+    @GetMapping
     Greeting greeting(@RequestParam(value='name', defaultValue='World') String name) {
         
         new Greeting(id: counter.incrementAndGet(), content: String.format(template, name))
     }
 
-    @RequestMapping(method = POST)
+    @PostMapping
     Greeting greeting(@RequestBody Person person) {
         
         new Greeting(id: counter.incrementAndGet(), content: String.format(template, person.name))
     }
 
-    @RequestMapping(value='/multipart', method = POST)
+    @PostMapping(value='/multipart')
     ResponseEntity<Map> multipart(@RequestParam('multipart')MultipartFile multipartFile) {
         Map info = [
           contentType: multipartFile.contentType,
